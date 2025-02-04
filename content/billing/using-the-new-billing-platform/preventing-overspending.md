@@ -20,7 +20,7 @@ The budget only applies to expenses incurred from the date of its creation onwar
 
 Budgets are not applicable to:
 
-* Seat-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
+* {% ifversion enterprise-licensing-language %}License{% else %}Seat{% endif %}-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
 * Pre-paid volume licenses{% endif %}.
 
 ## Viewing budgets
@@ -99,5 +99,5 @@ You can edit or delete a budget at any time, but you cannot change the budget sc
 {% endif %}
 
 1. Click **Budgets and alerts**.
-1. To edit a budget, in the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click {% octicon "pencil" aria-hidden="true" %} **Edit** or {% octicon "trash" aria-hidden="true" %} **Delete**.
+1. To edit a budget, in the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" %} Edit** or **{% octicon "trash" aria-hidden="true" %} Delete**.
 1. Follow the prompts.

@@ -3,7 +3,8 @@ title: Managing GitHub Advanced Security features for your enterprise
 intro: 'You can control {% data variables.product.prodname_GH_advanced_security %} features that secure and analyze code across all organizations owned by your enterprise.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.'
 versions:
-  feature: secret-scanning-enterprise-level
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Alerts
@@ -31,11 +32,11 @@ To manage individual {% data variables.product.prodname_GH_advanced_security %} 
 
 {% endif %}
 
-{% ifversion secret-scanning-enterprise-level-api %}{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}{% endif %}
+{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}
 
-{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% endif %}
+{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security).{% endif %}
 
-If you have disallowed {% data variables.product.prodname_GH_advanced_security %} for an organization, that organization will not be affected by enabling a feature for all existing repositories or for all new repositories. For more information about disallowing {% data variables.product.prodname_GH_advanced_security %} for an organization, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
+If you have disallowed {% data variables.product.prodname_GH_advanced_security %} for an organization, that organization will not be affected by enabling a feature for all existing repositories or for all new repositories. For more information about disallowing {% data variables.product.prodname_GH_advanced_security %} for an organization, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 When you enable one or more security and analysis features for existing repositories, you will see any results displayed on {% data variables.product.prodname_dotcom %} within minutes.
 
@@ -47,16 +48,17 @@ When you enable one or more security and analysis features for existing reposito
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security & analysis**.
+
+1. In the left sidebar, click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
 1. Optionally, enable or disable a feature for all existing repositories.
 
-   * To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+   * To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available licenses for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
    * To confirm the change, click the **Enable/Disable all** or **Enable/Disable for eligible repositories** button in the dialog that is displayed.
 1. Optionally, to enable or disable a feature automatically when new private and internal repositories{% ifversion secret-scanning-user-owned-repos %}, user namespace repositories {% ifversion ghec %}belonging to {% data variables.product.prodname_emus %}{% endif %}{% endif %}, or public repositories and repositories with {% data variables.product.prodname_GH_advanced_security %} enabled are created, select the checkbox below the feature.
 {% ifversion secret-scanning-custom-link-on-block %}
 1. Optionally, to include a resource link in the message that members will see when they attempt to push a secret, select **Add a resource link in the CLI and web UI when a commit is blocked**, then type a URL, and click **Save link**.
 
    > [!NOTE]
-   > When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. See "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+   > When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. See [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).
 
-   ![Screenshot of the "Push protection" section of the settings for security and analysis features. The checkbox and the text field used for enabling a custom link are outlined in dark orange.](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}
+   ![Screenshot of "Push protection" settings. The checkbox and text field used for enabling a custom link are outlined.](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}
